@@ -1,8 +1,10 @@
+using Api.Entities;
 using Api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var appSetting = builder.Configuration.Get<AppSetting>();
 
 var app = builder.Build();
 
@@ -21,6 +23,5 @@ var books = new List<Book>
     };
 
 app.MapGet("/books", () => books);
-
 
 app.Run();
